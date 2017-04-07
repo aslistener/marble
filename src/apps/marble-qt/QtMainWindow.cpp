@@ -38,6 +38,7 @@
 #include <QDialogButtonBox>
 #include <QClipboard>
 #include <QNetworkProxy>
+#include <QSharedPointer>
 
 #include "EditBookmarkDialog.h"
 #include "BookmarkManagerDialog.h"
@@ -733,9 +734,8 @@ void MainWindow::createStatusBar()
 
 void MainWindow::openMapDialog()
 {
-    QPointer<MapThemeDownloadDialog> dialog( new MapThemeDownloadDialog( m_controlView->marbleWidget() ) );
+    QSharedPointer<MapThemeDownloadDialog> dialog( new MapThemeDownloadDialog( m_controlView->marbleWidget() ) );
     dialog->exec();
-    delete dialog;
 }
 
 void MainWindow::exportMapScreenShot()
